@@ -1,0 +1,26 @@
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - run:
+          name: Create test results folder
+          command: |
+            mkdir ~/project/reports
+            mkdir ~/project/reports/junit
+      - run:
+          name: Install all dependenciees
+          command: yarn install
+      - run:
+          name: Run tests with JUnit as reporter
+          command: jest ./src --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: "reports/junit/js-test-results.xml"
+      - store_test_results:
+          path: ~/project/reports
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test

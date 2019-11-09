@@ -77,11 +77,12 @@ class JenaTest {
                     `);
                     stepItem.success = false;
                     stepItem.message = this.escapeForXml(error);
+                    console.log(`        ${this.steps[this.steps.length - 1].tests.length + 1}- ${testDescription} ${colors.red('\n'.concat(error))}`);
                     this.steps[this.steps.length - 1].addStep(stepItem);
                     this.failing = true;
                     throw new Error(error);
                 }
-                console.log(`        ${this.steps[this.steps.length - 1].tests.length}- ${testDescription} ${colors.green('success')}`);
+                console.log(`        ${this.steps[this.steps.length - 1].tests.length + 1}- ${testDescription} ${colors.green('success')}`);
                 stepItem.success = true;
                 stepItem.message = 'Success';
                 this.steps[this.steps.length - 1].addStep(stepItem);
