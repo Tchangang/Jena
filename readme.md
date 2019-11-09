@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/Tchangang/Jena.svg?style=svg)](https://circleci.com/gh/Tchangang/Jena)
+
 #Introduction
 Jena helps to write tests that need a "runner" system such as electron, puppeteer, anything else where you can't use mocha or jest.
 
