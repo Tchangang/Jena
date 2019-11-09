@@ -11,6 +11,7 @@ jobs:
           command: |
             mkdir ~/repo/reports
             mkdir ~/repo/reports/junit
+      - run: yarn config set _authToken $YARN_TOKEN
       - run:
           name: Install all dependenciees
           command: yarn install
