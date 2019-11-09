@@ -28,7 +28,7 @@
   "scripts": {
     "prepublish": "tsc",
     "test": "yarn jest src",
-    "test-ci": "jest ./src --ci --runInBand --reporters=default --reporters=jest-junit"
+    "test-ci": "tsc && jest ./src --ci --runInBand --reporters=default --reporters=jest-junit"
   },
   "readmeFilename": "readme.md",
   "repository": {
