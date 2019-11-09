@@ -23,7 +23,9 @@ jobs:
             git config --global user.name $GIT_USERNAME
       - run:
           name: Config yarn for deploy
-          command: yarn config set _authToken $YARN_TOKEN
+          command: |
+            yarn config set _authToken $YARN_TOKEN
+            echo "//registry.yarnpkg.com/:_authToken=$YARN_TOKEN" >>~/.npmrc
       - run:
           name: Install all dependenciees
           command: yarn install
