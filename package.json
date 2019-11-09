@@ -7,7 +7,7 @@
     "typescript": "^3.7.2"
   },
   "name": "jena",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "keywords": [
     "Jena",
     "electron",
