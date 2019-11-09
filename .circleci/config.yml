@@ -43,6 +43,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               yarn version --patch
               yarn publish
+              git commit -am "new version number [ci skip]"
               git push --follow-tags
             fi
 
