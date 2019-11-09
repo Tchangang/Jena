@@ -1,0 +1,43 @@
+{
+  "devDependencies": {
+    "@types/jest": "^24.0.22",
+    "jest": "^24.9.0",
+    "jest-junit": "^9.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
+  },
+  "name": "jena",
+  "version": "1.0.0",
+  "keywords": [
+    "Jena",
+    "electron",
+    "test",
+    "electron-test",
+    "test-electron",
+    "tests",
+    "test tools",
+    "electron-runner",
+    "jest-electron",
+    "mocha electron"
+  ],
+  "description": "Jena help to write test that need a \"runner\" system such as electron, puppeteer, anything else where you can't use mocha or jest. It was build at first for writing test for electron that need to interact with Electron.BrowserWindow, Electron.App, Electron.Screen, etc...",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Tchangang <tchangang.boris@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "tsc",
+    "test": "yarn jest src"
+  },
+  "readmeFilename": "readme.md",
+  "repository": {
+    "url": "https://github.com/Tchangang/Jena",
+    "type": "git"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.7",
+    "@types/shortid": "^0.0.29",
+    "colors": "^1.4.0",
+    "shortid": "^2.2.15"
+  }
+}
