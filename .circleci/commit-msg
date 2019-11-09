@@ -28,7 +28,6 @@ if [[ ${#changes[@]} -gt 0 ]]; then
 	# If there's still changes left, then we have stuff to build, leave the commit alone.
 	exit
 fi
-echo '1s/^/[skip ci] /'
-echo $1
 # Prefix the commit message with "[skip ci]"
-sed -i '1s/^/[skip ci] /' "$1"
+commitContent=$(<$1)
+echo "[skip ci] ${commitContent}" > $1
