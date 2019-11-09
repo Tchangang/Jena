@@ -12,11 +12,7 @@ mapfile -t blacklist < .ciignore
 for i in "${blacklist[@]}"
 do
 	# Remove the current pattern from the list of changes
-	echo blacklist
-	echo $blacklist
 	changes=( ${changes[@]/$i/} )
-	echo changes
-    echo ${#changes[@]}
 	if [[ ${#changes[@]} -eq 0 ]]; then
 		# If we've exhausted the list of changes before we've finished going
 		# through patterns, that's okay, just quit the loop
