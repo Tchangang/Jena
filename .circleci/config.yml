@@ -8,8 +8,8 @@ jobs:
       - run:
           name: Create test results folder
           command: |
-            mkdir ~/project/reports
-            mkdir ~/project/reports/junit
+            mkdir reports
+            mkdir reports/junit
       - run:
           name: Install all dependenciees
           command: yarn install
