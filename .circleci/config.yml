@@ -14,6 +14,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "47:ac:4d:50:ca:0f:26:c4:19:79:8f:f0:e1:e7:7e:5e"
+      - run:
+          name: Git config
+          command: git config user.email $GIT_EMAIL && git config user.email $GIT_USERNAME
       - run: yarn config set _authToken $YARN_TOKEN
       - run:
           name: Install all dependenciees
