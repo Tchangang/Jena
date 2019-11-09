@@ -38,13 +38,13 @@ jobs:
           path: ~/repo/reports
       - store_artifacts:
           path: ~/repo/reports
-      -deploy:
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            yarn version --patch
-            yarn publish
-            git push --follow-tags
-          fi
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn version --patch
+              yarn publish
+              git push --follow-tags
+            fi
 
 workflows:
   version: 2
