@@ -27,6 +27,10 @@ jobs:
             yarn config set _authToken $YARN_TOKEN
             echo "//registry.yarnpkg.com/:_authToken=$YARN_TOKEN" >>~/.npmrc
       - run:
+          name: Add github hook
+          command: |
+            cp ~/repo/.circleci/commit-msg ~/repo/.git/hooks/commit-msg
+      - run:
           name: Make git hook executable
           command: |
             chmod +x ~/repo/.git/hooks/*
