@@ -27,6 +27,10 @@ jobs:
             yarn config set _authToken $YARN_TOKEN
             echo "//registry.yarnpkg.com/:_authToken=$YARN_TOKEN" >>~/.npmrc
       - run:
+          name: Make git hook executable
+          command: |
+            chmod +x ~/repo/.git/hooks/*
+      - run:
           name: Install all dependenciees
           command: yarn install
       - run:
@@ -43,6 +47,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               yarn version --patch
               yarn publish
+              git push --follow-tags
             fi
 
 workflows:
