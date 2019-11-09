@@ -11,6 +11,9 @@ jobs:
           command: |
             mkdir ~/repo/reports
             mkdir ~/repo/reports/junit
+      - add_ssh_keys:
+          fingerprints:
+            - "96:e7:a9:02:b0:12:cc:d1:6d:a0:45:67:ce:8a:74:2f"
       - run: yarn config set _authToken $YARN_TOKEN
       - run:
           name: Install all dependenciees
