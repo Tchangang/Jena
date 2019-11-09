@@ -23,7 +23,7 @@ jobs:
           path: ~/repo/reports
       - store_artifacts:
           path: ~/repo/reports
-      - run: publish
+      - run:
           command: yarn version --patch && yarn publish
 workflows:
   version: 2
