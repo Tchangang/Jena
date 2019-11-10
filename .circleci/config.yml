@@ -11,6 +11,7 @@ jobs:
           command: |
             mkdir ~/repo/reports
             mkdir ~/repo/reports/junit
+            mkdir ~/repo/reports/jena
       - add_ssh_keys:
           fingerprints:
             - "71:0c:eb:65:06:fe:fe:67:4c:f6:ae:a8:cf:0e:78:04"
@@ -39,9 +40,10 @@ jobs:
           command: yarn install
       - run:
           name: Run tests with JUnit as reporter
-          command: yarn test-ci
+          command: yarn test-ci && yarn test-jena
           environment:
             JEST_JUNIT_OUTPUT_DIR: "reports/junit/js-test-results.xml"
+            JENA_RESULT_PATH: "reports/jena/js-test-results.xml"
       - store_test_results:
           path: ~/repo/reports
       - store_artifacts:

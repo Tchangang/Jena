@@ -22,7 +22,6 @@ class TestHandler {
         }
     }
     async saveJUnitReport() {
-        await Promise.all(this.promises);
         const finalXml = '<?xml version="1.0" encoding="UTF-8"?>\n'
             .concat(`<testsuites id="" name="${this.title}">\n`)
             .concat(`${this.xml.join('')}</testsuites>`);
@@ -39,6 +38,7 @@ class TestHandler {
         }
     }
     async end() {
+        await Promise.all(this.promises);
         await this.saveJUnitReport();
     }
     async startTestSuite(args: Array<any> = [], sync: boolean = false) {
@@ -52,7 +52,7 @@ class TestHandler {
                         this.xml.push(data.xml);
                         if (data.error) {
                             await this.saveJUnitReport();
-                            throw new Error(data.error);
+                            reject(new Error(data.error));
                         }
                         return resolve();
                     }

@@ -4,7 +4,7 @@ test('Should be function', () => {
     expect(typeof JenaTest).toBe('function');
 });
 
-test('', () => {
+test('Test JenaTester', () => {
    const jenaTest = new JenaTest();
     jenaTest.startTestSuite('First test suite', async () => {
        expect(jenaTest.testSuiteTitle).toBe('First test suite');
