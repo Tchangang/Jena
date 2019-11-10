@@ -55,7 +55,6 @@ jobs:
               yarn publish
               git push --follow-tags
             fi
-
 workflows:
   version: 2
   build:
