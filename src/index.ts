@@ -52,14 +52,14 @@ class JenaTest {
     async describe(stepDescription: string, callback: Callback, id?: string) {
         console.log(`  ${stepDescription}`);
         this.completeLastStep();
-        this.steps.push(Factory.createStep(id, stepDescription));
+        this.steps.push(Factory.createStep(id, this.escapeForXml(stepDescription)));
         await callback();
     }
     generateXml(): string {
         return `${this.steps.map((step: TestStep) =>  step.getXml())}\n`;
     }
     expect(testDescription: string, value: any, id?: string) {
-        const stepItem = Factory.createStepItem(id, testDescription, false);
+        const stepItem = Factory.createStepItem(id, this.escapeForXml(testDescription), false);
         return {
             toBe: (toCmp: any) => {
                 stepItem.complete();

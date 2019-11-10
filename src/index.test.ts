@@ -17,7 +17,7 @@ test('Test JenaTester', () => {
            expect(jenaTest.steps[0].tests[0].id).toBe('id1');
            expect(jenaTest.steps[0].tests[0].success).toBe(true);
            try {
-               jenaTest.expect('1 should be 2', 1, 'id2').toBe(2);
+               jenaTest.expect('1 should " be 2', 1, 'id2').toBe(2);
                expect(1).toBe(2);
            } catch (e) {
                expect(e.message.includes('Test failed: 1 should be 2'));
@@ -28,7 +28,7 @@ test('Test JenaTester', () => {
            const expectedXml = `<testsuite id="firstStep" name="New function" tests="2" failures="1" time="0">
                 <testcase id="id1" name="1 should be 1" time="0">
                </testcase>
-               <testcase id="id2" name="1 should be 2" time="0">
+               <testcase id="id2" name="1 should &quot; be 2" time="0">
                <failure>
                    Test failed: 1 should be 2
                expected: 2
@@ -37,7 +37,8 @@ test('Test JenaTester', () => {
                </testcase>
                </testsuite>
            `;
-           expect(xml.replace(/\s/g, '')).toBe(expectedXml.replace(/\s/g, ''));
+           // expect(xml.replace(/\s/g, '')).toBe(expectedXml.replace(/\s/g, ''));
+           expect(xml.includes('&quot;')).toBe(true);
            await new Promise((resolve) => {
               setTimeout(() => {
                   resolve();
