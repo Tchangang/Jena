@@ -52,7 +52,7 @@ class TestHandler {
                         this.xml.push(data.xml);
                         if (data.error) {
                             await this.saveJUnitReport();
-                            reject(new Error(data.error));
+                            process.abort();
                         }
                         return resolve();
                     }
